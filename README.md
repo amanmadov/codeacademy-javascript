@@ -53,11 +53,11 @@ subLength('cheesecake', 'k');   // returns 0
 // Solution: 
 
 const subLength = function (str, chr) {
-    if (str.toLowerCase().split('').filter(x => x === chr).length !== 2) return 0;
+    if (str.toLowerCase().split('').filter(letter => letter === chr).length !== 2) return 0;
     let firstIndex = lastIndex = 0;
-    str.split('').forEach((el, ind) => {
-        if (el === chr && firstIndex === 0) firstIndex = ind;
-        if (el === chr && firstIndex !== 0) lastIndex = ind;
+    str.split('').forEach((letter, ind) => {
+        if (letter === chr && firstIndex === 0) firstIndex = ind;
+        if (letter === chr && firstIndex !== 0) lastIndex = ind;
     })
     return lastIndex - firstIndex + 1;
 }
