@@ -10,7 +10,7 @@ Intermediate JavaScript concepts with these 3 code challenges.
 In these exercises, we will practice working with intermediate JavaScript concepts. This is helpful for implementing loops and working with arrays, objects, and iterators. Some of these challenges are difficult! Take some time to think about them before starting to code.
 
 **Challenge 1. Write a function `factorial()` that takes a number as an argument and returns the factorial of the number.**
-```
+```js
 //Example:
 
 factorial(6);  // returns `720` because 6 * 5 * 4 * 3 * 2 * 1 = 720 
@@ -18,7 +18,7 @@ factorial(6);  // returns `720` because 6 * 5 * 4 * 3 * 2 * 1 = 720
 
 Assume only **positive numbers** will be given as an argument for the `factorial()` function.
 
-```
+```js
 // Solution:
 
 const factorial = (num) => {
