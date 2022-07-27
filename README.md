@@ -88,6 +88,8 @@ groceries( [{item: 'Cheese Balls'}] );
 ```
 
 ```js
+// Solution: 
+
 const groceries = (arr) => {
     let groceryList = arr.map(el => el.item)
     return groceryList.length === 1 ? groceryList[0] : (groceryList.length === 2 ? groceryList.join(' and ') : groceryList.slice(0,groceryList.length-2).join(', ') + ', ' + groceryList.slice(-2).join(' and '))
