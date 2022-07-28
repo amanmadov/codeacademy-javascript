@@ -304,6 +304,8 @@ Use the `compareDNA()` to find the two most related instances of pAequor.
 <br/>
 
 ```js
+// Solution: 
+
 const pAequorFactory = (num, arr) => {
     return {
         specimenNum: num,
