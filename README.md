@@ -272,10 +272,10 @@ The behavior of `compareDNA()` is to compare the current pAequors .dna with the 
 
 <br/>
 
-    ```
-    ex1 = ['A', 'C', 'T', 'G']
-    ex2 = ['C', 'A', 'T', 'T']
-    ```
+```
+ex1 = ['A', 'C', 'T', 'G']
+ex2 = ['C', 'A', 'T', 'T']
+```
 
 <br/>
 
