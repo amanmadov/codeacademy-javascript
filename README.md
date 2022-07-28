@@ -301,6 +301,49 @@ Create a `complementStrand()` method to the factory function’s object that ret
 The rules are that 'A's match with 'T's and vice versa. Also, 'C's match with 'G's and vice versa.
 Use the `compareDNA()` to find the two most related instances of pAequor.
 
+<br/>
 
+```js
+const pAequorFactory = (num, arr) => {
+    return {
+        specimenNum: num,
+        dna: arr,
+        mutate() {
+            let randomIndex = Math.floor(Math.random() * (this.dna.length));
+            let randomBase = ['A', 'T', 'C', 'G'].filter(base => base !== this.dna[randomIndex])[Math.floor(Math.random() * 3)]
+            this.dna[randomIndex] = randomBase;
+            return this.dna;
+        },
+        compareDNA(pObj){
+            const matchList = [...this.dna].filter((base,index) => { 
+                return base === pObj.dna[index];
+            });
+            const matchPercentage = Math.round((matchList.length * 100) / this.dna.length);
+            console.log(`specimen #${this.specimenNum} and specimen #${pObj.specimenNum} have ${matchPercentage}% DNA in common`) 
+        },
+        willLikelySurvive(){
+            const cgList = [...this.dna].filter(base => base === 'C' || base === 'G');
+            return Math.round((cgList.length * 100) / this.dna.length) >= 60;
+        },
+        complementStrand(){
+            const baseCouple = {'A':'T','T':'A','C':'G','G':'C'};
+            return [...this.dna].map(base => {
+                return baseCouple[base];
+            });
+        }
+    };
+}
 
+const pList = [];
+let count = 0;
+do
+{
+    let p = pAequorFactory(count + 1, mockUpStrand())
+    if(p.willLikelySurvive()){
+        count++;
+        pList.push(p);
+    }
+}
+while(count !== 30)
+```
 
