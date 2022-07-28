@@ -217,7 +217,7 @@ The small DNA samples and frequency at which it mutates due to the hydrothermal 
 However, P. aequor cannot survive above sea level and locating P. aequor in the deep sea is difficult and expensive. 
 Your job is to create objects that simulate the DNA of P. aequor for your research team to study.
 
-<br/><br/>
+<br/>
 
 **Project Requirements:**
 <br/>
@@ -227,25 +227,27 @@ DNA is comprised of four bases (Adenine, Thymine, Cytosine, and Guanine). When `
 it will randomly select a base and return the base **('A','T','C', or 'G')**. 
 `mockUpStrand()` is used to generate an array containing 15 bases to represent a single DNA strand with 15 bases.
 
-<br/><br/>
-    ```js
-    // Starter Code
+<br/>
+```js
+// Starter Code
 
-    // Returns a random DNA base
-    const returnRandBase = () => {
-      const dnaBases = ["A", "T", "C", "G"];
-      return dnaBases[Math.floor(Math.random() * 4)];
-    };
+// Returns a random DNA base
+const returnRandBase = () => {
+  const dnaBases = ["A", "T", "C", "G"];
+  return dnaBases[Math.floor(Math.random() * 4)];
+};
 
-    // Returns a random single strand of DNA containing 15 bases
-    const mockUpStrand = () => {
-      const newStrand = [];
-      for (let i = 0; i < 15; i++) {
-        newStrand.push(returnRandBase());
-      }
-      return newStrand;
-    };
+// Returns a random single strand of DNA containing 15 bases
+const mockUpStrand = () => {
+  const newStrand = [];
+  for (let i = 0; i < 15; i++) {
+    newStrand.push(returnRandBase());
+  }
+  return newStrand;
+};
 ```
+
+<br/>
 
 - [x] Since you need to create multiple objects, create a factory function `pAequorFactory()` that has two parameters: 
 The first parameter is a number (no two organisms should have the same number).
