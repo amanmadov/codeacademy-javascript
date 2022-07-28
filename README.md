@@ -254,31 +254,50 @@ const mockUpStrand = () => {
 The first parameter is a number (no two organisms should have the same number).
 The second parameter is an array of 15 DNA bases.
 `pAequorFactory()` should return an object that contains the properties specimenNum and dna that correspond to the parameters provided.
+
 <br/>
+
 - [x] Your team wants you to simulate P. aequors high rate of mutation (change in its DNA)
 To simulate a mutation, in `pAequorFactory()`s returned object, add the method `mutate()`.
 `mutate()` is responsible for randomly selecting a base in the object’s dna property and changing the current base to a different base. 
 Then `mutate()` will return the object’s dna. For example, if the randomly selected base is the 1st base and it is 'A', the base must be changed to 'T', 'C', or 'G'. But it cannot be 'A' again.
+
 <br/>
+
 - [x] Your research team wants to be able to compare the DNA sequences of different P.aequor. 
 You will have to add a new method `compareDNA()` to the returned object of the factory function. 
 `compareDNA()` has one parameter, another pAequor object.
 The behavior of `compareDNA()` is to compare the current pAequors .dna with the passed in pAequors .dna and compute how many bases are identical and in the same locations. `compareDNA()` does not return anything, but prints a message that states the percentage of DNA the two objects have in common — use the `.specimenNum` to identify which pAequor objects are being compared. For example:
+
 <br/>
+
 ```
 ex1 = ['A', 'C', 'T', 'G']
 ex2 = ['C', 'A', 'T', 'T']
 ```
+
 <br/>
+
 ex1 and ex2 only have the 3rd element in common ('T') and therefore, have 25% (1/4) of their DNA in common. 
 The resulting message would read something along the lines of: `specimen #1 and specimen #2 have 25% DNA in common.`
 
-- [x] 
+<br/>
 
-- [x] 
+- [x] P.aequor have a likelier chance of survival if their DNA is made up of at least 60% 'C' or 'G' bases.
+In the returned object of `pAequorFactory()`, add another method `willLikelySurvive()`.
+`willLikelySurvive()` returns true if the objects .dna array contains at least 60% 'C' or 'G' bases. Otherwise, `willLikelySurvive()` returns false.
 
-- [x] 
+<br/>
 
-- [x] 
+- [x] With the factory function set up, your team requests that you create **30 instances of pAequor** that can **survive** in their natural environment. Store these instances in an array for your team to study later.
+
+<br/>
+
+- [x] If you’d like to challenge yourself further, you could consider the following:
+Create a `complementStrand()` method to the factory function’s object that returns the complementary DNA strand. 
+The rules are that 'A's match with 'T's and vice versa. Also, 'C's match with 'G's and vice versa.
+Use the `compareDNA()` to find the two most related instances of pAequor.
+
+
 
 
