@@ -219,7 +219,7 @@ The small DNA samples and frequency at which it mutates due to the hydrothermal 
 However, P. aequor cannot survive above sea level and locating P. aequor in the deep sea is difficult and expensive. 
 Your job is to create objects that simulate the DNA of P. aequor for your research team to study.
 
-<br/><br/>
+<br/>
 
 **Project Requirements:**
 
