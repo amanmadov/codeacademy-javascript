@@ -268,7 +268,9 @@ Then `mutate()` will return the object’s dna. For example, if the randomly sel
 - [x] Your research team wants to be able to compare the DNA sequences of different P.aequor. 
 You will have to add a new method `compareDNA()` to the returned object of the factory function. 
 `compareDNA()` has one parameter, another pAequor object.
-The behavior of `compareDNA()` is to compare the current pAequors .dna with the passed in pAequors .dna and compute how many bases are identical and in the same locations. `compareDNA()` does not return anything, but prints a message that states the percentage of DNA the two objects have in common — use the `.specimenNum` to identify which pAequor objects are being compared. For example:
+The behavior of `compareDNA()` is to compare the current pAequors .dna with the passed in pAequors .dna and compute how many bases are identical and in the same locations. `compareDNA()` does not return anything, but prints a message that states the percentage of DNA the two objects have in common — use the `.specimenNum` to identify which pAequor objects are being compared. ex1 and ex2 only have the 3rd element in common ('T') and therefore, have 25% (1/4) of their DNA in common. 
+The resulting message would read something along the lines of: `specimen #1 and specimen #2 have 25% DNA in common.`
+For example:
 
 <br/>
 
@@ -276,11 +278,6 @@ The behavior of `compareDNA()` is to compare the current pAequors .dna with the 
 ex1 = ['A', 'C', 'T', 'G']
 ex2 = ['C', 'A', 'T', 'T']
 ```
-
-<br/>
-
-    ex1 and ex2 only have the 3rd element in common ('T') and therefore, have 25% (1/4) of their DNA in common. 
-    The resulting message would read something along the lines of: `specimen #1 and specimen #2 have 25% DNA in common.`
 
 <br/>
 
