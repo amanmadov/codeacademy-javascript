@@ -113,9 +113,12 @@ The company that you work for suspects that credit card distributors have been m
 In this project, you have the role of a clerk who checks if credit cards are valid.
 
 <br/>
+<br/>
 
 **Project Requirements:**
+
 <br/>
+
 - [x] Look over the starter code. There are 15 arrays that each contain the digits of separate credit card numbers. They all have prefixes to reflect their status, i.e. variables that start with valid contain a valid number, whereas invalid do not, and mystery variables can be either. There is also a batch array that stores all of the provided credit cards in a single array. You’ll use these arrays later to check if your functions are working properly.
 - [x] Create a function, `validateCred()` that has a parameter of an array. The purpose of `validateCred()` is to return true when an array contains digits of a valid credit card number and false when it is invalid. This function should **NOT mutate the values of the original array**. To find out if a credit card number is valid or not, use the `Luhn algorithm`. Generally speaking, an algorithm is a series of steps that solve a problem — the Luhn algorithm is a series of mathematical calculations used to validate certain identification numbers, e.g. credit card numbers. The calculations in the `Luhn algorithm` can be broken down as the following steps:
     1. Starting from the farthest digit to the right, AKA the check digit, iterate to the left.
@@ -205,5 +208,144 @@ console.log(findInvalidCards([valid1, valid2, valid3, valid4, valid5]));        
 console.log(findInvalidCards([invalid1, invalid2, invalid3, invalid4, invalid5]));  // Should print all invalid cards
 
 console.log(idInvalidCardCompanies(batch));
+```
+
+<br/><br/>
+
+## Challenge Project: Mysterious Organism
+
+<br/>
+
+You’re part of a research team that has found a new mysterious organism at the bottom of the ocean near hydrothermal vents. 
+Your team names the organism, Pila aequor (P. aequor), and finds that it is only comprised of 15 DNA bases. 
+The small DNA samples and frequency at which it mutates due to the hydrothermal vents make P. aequor an interesting specimen to study. 
+However, P. aequor cannot survive above sea level and locating P. aequor in the deep sea is difficult and expensive. 
+Your job is to create objects that simulate the DNA of P. aequor for your research team to study.
+
+<br/>
+
+**Project Requirements:**
+
+<br/>
+
+- [x] Look over the starter code. There are two helper functions: `returnRandBase()` and `mockUpStrand()`
+DNA is comprised of four bases (Adenine, Thymine, Cytosine, and Guanine). When `returnRandBase()` is called, 
+it will randomly select a base and return the base **('A','T','C', or 'G')**
+`mockUpStrand()` is used to generate an array containing 15 bases to represent a single DNA strand with 15 bases.
+You can find the Starter Code below:
+
+<br/>
+
+```js
+
+// Returns a random DNA base
+const returnRandBase = () => {
+  const dnaBases = ["A", "T", "C", "G"];
+  return dnaBases[Math.floor(Math.random() * 4)];
+};
+
+// Returns a random single strand of DNA containing 15 bases
+const mockUpStrand = () => {
+  const newStrand = [];
+  for (let i = 0; i < 15; i++) {
+    newStrand.push(returnRandBase());
+  }
+  return newStrand;
+};
+```
+
+<br/>
+
+- [x] Since you need to create multiple objects, create a factory function `pAequorFactory()` that has two parameters: 
+The first parameter is a number (no two organisms should have the same number).
+The second parameter is an array of 15 DNA bases.
+`pAequorFactory()` should return an object that contains the properties specimenNum and dna that correspond to the parameters provided.
+
+<br/>
+
+- [x] Your team wants you to simulate P. aequors high rate of mutation (change in its DNA)
+To simulate a mutation, in `pAequorFactory()`s returned object, add the method `mutate()`.
+`mutate()` is responsible for randomly selecting a base in the object’s dna property and changing the current base to a different base. 
+Then `mutate()` will return the object’s dna. For example, if the randomly selected base is the 1st base and it is 'A', the base must be changed to 'T', 'C', or 'G'. But it cannot be 'A' again.
+
+<br/>
+
+- [x] Your research team wants to be able to compare the DNA sequences of different P.aequor. 
+You will have to add a new method `compareDNA()` to the returned object of the factory function. 
+`compareDNA()` has one parameter, another pAequor object.
+The behavior of `compareDNA()` is to compare the current pAequors .dna with the passed in pAequors .dna and compute how many bases are identical and in the same locations. `compareDNA()` does not return anything, but prints a message that states the percentage of DNA the two objects have in common — use the `.specimenNum` to identify which pAequor objects are being compared. ex1 and ex2 only have the 3rd element in common ('T') and therefore, have 25% (1/4) of their DNA in common. 
+The resulting message would read something along the lines of: `specimen #1 and specimen #2 have 25% DNA in common.`
+For example:
+
+<br/>
+
+```
+ex1 = ['A', 'C', 'T', 'G']
+ex2 = ['C', 'A', 'T', 'T']
+```
+
+<br/>
+
+- [x] P.aequor have a likelier chance of survival if their DNA is made up of at least 60% 'C' or 'G' bases.
+In the returned object of `pAequorFactory()`, add another method `willLikelySurvive()`.
+`willLikelySurvive()` returns true if the objects .dna array contains at least 60% 'C' or 'G' bases. Otherwise, `willLikelySurvive()` returns false.
+
+<br/>
+
+- [x] With the factory function set up, your team requests that you create **30 instances of pAequor** that can **survive** in their natural environment. Store these instances in an array for your team to study later.
+
+<br/>
+
+- [x] If you’d like to challenge yourself further, you could consider the following:
+Create a `complementStrand()` method to the factory function’s object that returns the complementary DNA strand. 
+The rules are that 'A's match with 'T's and vice versa. Also, 'C's match with 'G's and vice versa.
+Use the `compareDNA()` to find the two most related instances of pAequor.
+
+<br/>
+
+```js
+// Solution: 
+
+const pAequorFactory = (num, arr) => {
+    return {
+        specimenNum: num,
+        dna: arr,
+        mutate() {
+            let randomIndex = Math.floor(Math.random() * (this.dna.length));
+            let randomBase = ['A', 'T', 'C', 'G'].filter(base => base !== this.dna[randomIndex])[Math.floor(Math.random() * 3)]
+            this.dna[randomIndex] = randomBase;
+            return this.dna;
+        },
+        compareDNA(pObj){
+            const matchList = [...this.dna].filter((base,index) => { 
+                return base === pObj.dna[index];
+            });
+            const matchPercentage = Math.round((matchList.length * 100) / this.dna.length);
+            console.log(`specimen #${this.specimenNum} and specimen #${pObj.specimenNum} have ${matchPercentage}% DNA in common`) 
+        },
+        willLikelySurvive(){
+            const cgList = [...this.dna].filter(base => base === 'C' || base === 'G');
+            return Math.round((cgList.length * 100) / this.dna.length) >= 60;
+        },
+        complementStrand(){
+            const baseCouple = {'A':'T','T':'A','C':'G','G':'C'};
+            return [...this.dna].map(base => {
+                return baseCouple[base];
+            });
+        }
+    };
+}
+
+const pList = [];
+let count = 0;
+do
+{
+    let p = pAequorFactory(count + 1, mockUpStrand())
+    if(p.willLikelySurvive()){
+        count++;
+        pList.push(p);
+    }
+}
+while(count !== 30)
 ```
 
