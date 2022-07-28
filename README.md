@@ -217,32 +217,34 @@ The small DNA samples and frequency at which it mutates due to the hydrothermal 
 However, P. aequor cannot survive above sea level and locating P. aequor in the deep sea is difficult and expensive. 
 Your job is to create objects that simulate the DNA of P. aequor for your research team to study.
 
-<br/>
+<br/><br/>
 
 **Project Requirements:**
-
-<br/>
-- [x] Look over the starter code. There are two helper functions: `returnRandBase()` and `mockUpStrand()`. DNA is comprised of four bases (Adenine, Thymine, Cytosine, and Guanine). When `returnRandBase()` is called, it will randomly select a base and return the base **('A','T','C', or 'G')**. `mockUpStrand()` is used to generate an array containing 15 bases to represent a single DNA strand with 15 bases.
-
 <br/>
 
-```js
-// Starter Code
+- [x] Look over the starter code. There are two helper functions: `returnRandBase()` and `mockUpStrand()`. 
+DNA is comprised of four bases (Adenine, Thymine, Cytosine, and Guanine). When `returnRandBase()` is called, 
+it will randomly select a base and return the base **('A','T','C', or 'G')**. 
+`mockUpStrand()` is used to generate an array containing 15 bases to represent a single DNA strand with 15 bases.
 
-// Returns a random DNA base
-const returnRandBase = () => {
-  const dnaBases = ["A", "T", "C", "G"];
-  return dnaBases[Math.floor(Math.random() * 4)];
-};
+<br/><br/>
+    ```js
+    // Starter Code
 
-// Returns a random single strand of DNA containing 15 bases
-const mockUpStrand = () => {
-  const newStrand = [];
-  for (let i = 0; i < 15; i++) {
-    newStrand.push(returnRandBase());
-  }
-  return newStrand;
-};
+    // Returns a random DNA base
+    const returnRandBase = () => {
+      const dnaBases = ["A", "T", "C", "G"];
+      return dnaBases[Math.floor(Math.random() * 4)];
+    };
+
+    // Returns a random single strand of DNA containing 15 bases
+    const mockUpStrand = () => {
+      const newStrand = [];
+      for (let i = 0; i < 15; i++) {
+        newStrand.push(returnRandBase());
+      }
+      return newStrand;
+    };
 ```
 
 - [x] Since you need to create multiple objects, create a factory function `pAequorFactory()` that has two parameters: 
