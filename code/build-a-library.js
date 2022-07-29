@@ -64,7 +64,7 @@ class CD extends Media {
         this._songs = songs;
     }
     shuffle() {
-        return this._songs
+        return [...this._songs]
             .map((value) => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
             .map(({ value }) => value);
