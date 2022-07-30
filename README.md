@@ -91,7 +91,7 @@ groceries( [{item: 'Cheese Balls'}] );
 // Solution: 
 
 const groceries = (arr) => {
-    let groceryList = arr.map(el => el.item)
+    let groceryList = arr.map(el => el.item);
     return groceryList.length === 1 ? groceryList[0] : (groceryList.length === 2 ? groceryList.join(' and ') : groceryList.slice(0,groceryList.length-2).join(', ') + ', ' + groceryList.slice(-2).join(' and '))
 }
 
@@ -321,7 +321,7 @@ const pAequorFactory = (num, arr) => {
                 return base === pObj.dna[index];
             });
             const matchPercentage = Math.round((matchList.length * 100) / this.dna.length);
-            console.log(`specimen #${this.specimenNum} and specimen #${pObj.specimenNum} have ${matchPercentage}% DNA in common`) 
+            console.log(`specimen #${this.specimenNum} and specimen #${pObj.specimenNum} have ${matchPercentage}% DNA in common`);
         },
         willLikelySurvive(){
             const cgList = [...this.dna].filter(base => base === 'C' || base === 'G');
@@ -340,7 +340,7 @@ const pList = [];
 let count = 0;
 do
 {
-    let p = pAequorFactory(count + 1, mockUpStrand())
+    let p = pAequorFactory(count + 1, mockUpStrand());
     if(p.willLikelySurvive()){
         count++;
         pList.push(p);
