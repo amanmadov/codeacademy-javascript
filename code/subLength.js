@@ -32,7 +32,7 @@ console.log(subLength('cheesecake', 'k'));  // returns 0
 */
 
 // refactored code:
-const subLength = function (str, chr) {
+const subLength = (str, chr) => {
     if (str.toLowerCase().split('').filter(letter => letter === chr).length !== 2) return 0;
     let firstIndex = lastIndex = 0;
     str.split('').forEach((letter, ind) => {
